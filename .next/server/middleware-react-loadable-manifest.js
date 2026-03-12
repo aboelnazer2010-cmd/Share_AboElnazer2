@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"app/chat/page.tsx -> @/components/NexusApp":{"id":7237,"files":["static/chunks/623.ef39f7e098fab8c0.js","static/chunks/237.b7693d9723ec6f4a.js"]}}';
