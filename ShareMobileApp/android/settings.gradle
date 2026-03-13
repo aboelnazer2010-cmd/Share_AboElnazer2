@@ -1,17 +1,8 @@
-pluginManagement {
-    includeBuild("../node_modules/@react-native/gradle-plugin")
-}
-
-plugins {
-    id("com.facebook.react.settings")
-}
-
-// استخدام الاسم المستعار لتجنب أخطاء اللغة
-extensions.configure("react") {
-    autolinkLibrariesFromCommand()
-}
-
 rootProject.name = 'ShareMobileApp'
+
+// هذه السطور هي الطريقة الصحيحة لإصدار 0.72 للربط التلقائي
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); 
+applyNativeModulesSettingsGradle(settings)
 
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
