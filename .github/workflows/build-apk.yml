@@ -31,11 +31,13 @@ jobs:
           cd ShareMobileApp/nodejs-assets/nodejs-project
           npm install
 
-      - name: Build APK (Debug Mode)
+      - name: Build APK (Debug Mode with Extra Memory)
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
         run: |
           cd ShareMobileApp/android
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug --no-daemon --stacktrace --console=plain
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
