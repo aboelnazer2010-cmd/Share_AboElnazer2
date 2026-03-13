@@ -6,10 +6,6 @@ plugins {
     id("com.facebook.react.settings")
 }
 
-// نستخدم الاسم المستعار "react" لتفادي خطأ الـ com المزعج
-extensions.configure("react") {
-    autolinkLibrariesFromCommand()
-}
 
 rootProject.name = 'ShareMobileApp'
 
