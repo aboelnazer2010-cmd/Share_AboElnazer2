@@ -6,11 +6,11 @@ plugins {
     id("com.facebook.react.settings")
 }
 
-rootProject.name = 'ShareMobileApp'
-
-extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
-    ex.autolinkLibrariesFromCommand()
+extensions.configure("react") {
+    autolinkLibrariesFromCommand()
 }
+
+rootProject.name = 'ShareMobileApp'
 
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
