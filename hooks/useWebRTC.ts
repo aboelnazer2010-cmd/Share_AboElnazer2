@@ -143,17 +143,23 @@ export const useWebRTC = () => {
 
   const createPeerConnection = useCallback((peerId: string, isInitiator: boolean) => {
     const pc = new RTCPeerConnection({
-      iceServers: [{ urls: 'stun:stun.l.google.com:19302' }], // Optional, helps in some LANs
+      iceServers: [
+        { urls: 'stun:stun.l.google.com:19302' },
+        { urls: 'stun:stun1.l.google.com:19302' },
+        // خادم TURN مجاني (مهم جداً لنقل الملفات عبر الإنترنت)
+        {
+          urls: 'turn:openrelay.metered.ca:80',
+          username: 'openrelayproject',
+          credential: 'openrelayproject'
+        },
+        {
+          urls: 'turn:openrelay.metered.ca:443',
+          username: 'openrelayproject',
+          credential: 'openrelayproject'
+        }
+      ],
     });
-
-    pc.onicecandidate = (event) => {
-      if (event.candidate && socket) {
-        socket.emit('signal', {
-          to: peerId,
-          signal: { type: 'candidate', candidate: event.candidate },
-        });
-      }
-    };
+    // ... باقي الكود كما هو
 
     pc.onconnectionstatechange = () => {
       if (pc.connectionState === 'connected') {
