@@ -26,14 +26,14 @@ jobs:
           cd ShareMobileApp
           npm install
 
-      - name: Build APK
+      - name: Build APK (Debug Mode)
         run: |
           cd ShareMobileApp/android
           chmod +x gradlew
-          ./gradlew assembleRelease
+          ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Share-AboElnazer-APK
-          path: ShareMobileApp/android/app/build/outputs/apk/release/app-release.apk
+          path: ShareMobileApp/android/app/build/outputs/apk/debug/app-debug.apk
