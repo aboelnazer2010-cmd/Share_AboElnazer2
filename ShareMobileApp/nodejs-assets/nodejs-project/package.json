@@ -1,17 +1,21 @@
 {
-  "name": "nodejs-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "sample-main.js",
+  "name": "ShareMobileApp",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1",
-    "socket.io": "^4.8.3"
+    "react": "18.2.0",
+    "react-native": "0.74.5",
+    "nodejs-mobile-react-native": "^18.20.4",
+    "react-native-network-info": "^5.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@react-native/babel-preset": "0.74.87",
+    "@react-native/metro-config": "0.74.87"
   }
 }
